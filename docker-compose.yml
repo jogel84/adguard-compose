@@ -1,0 +1,17 @@
+version: '3'
+services:
+  adguardhome:
+    hostname: adguardhome
+    image: adguard/adguardhome
+    container_name: adguardhome
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ${ADGUARD_HOME}:/opt/adguardhome/work
+      - ${ADGUARD_HOME}:/opt/adguardhome/conf
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "8088:80/tcp"
+      - "3000:3000/tcp"
