@@ -1,7 +1,7 @@
 services:
   adguardhome:
     hostname: adguardhome
-    image: adguard/adguardhome
+    image: adguard/adguardhome:${CONTAINER_ADGUARD_VERSION}
     container_name: adguardhome
     restart: unless-stopped
     volumes:
